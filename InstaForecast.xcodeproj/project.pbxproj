@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A8165E2C2054ECC400E235B3 /* InstaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E2B2054ECC400E235B3 /* InstaInfo.swift */; };
+		A8165E322055214400E235B3 /* TagPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E312055214400E235B3 /* TagPage.swift */; };
+		A8165E342055217800E235B3 /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E332055217800E235B3 /* ProfilePage.swift */; };
+		A849B182204A6B1B0005781D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849B181204A6B1B0005781D /* AppDelegate.swift */; };
+		A849B184204A6B1B0005781D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849B183204A6B1B0005781D /* ViewController.swift */; };
+		A849B187204A6B1B0005781D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A849B185204A6B1B0005781D /* Main.storyboard */; };
+		A849B189204A6B1B0005781D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A849B188204A6B1B0005781D /* Assets.xcassets */; };
+		A849B18C204A6B1B0005781D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A849B18A204A6B1B0005781D /* LaunchScreen.storyboard */; };
+		A849B196204ABF6E0005781D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849B195204ABF6E0005781D /* Constants.swift */; };
+		F736BBAC7DE2D6721D6B5D15 /* Pods_InstaForecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE89C84E5B2A1A1D49AE8C9 /* Pods_InstaForecast.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		64E2E618DF5DCDF83CDA816C /* Pods-InstaForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaForecast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaForecast/Pods-InstaForecast.debug.xcconfig"; sourceTree = "<group>"; };
+		A8165E2B2054ECC400E235B3 /* InstaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaInfo.swift; sourceTree = "<group>"; };
+		A8165E312055214400E235B3 /* TagPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagPage.swift; sourceTree = "<group>"; };
+		A8165E332055217800E235B3 /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
+		A849B17E204A6B1B0005781D /* InstaForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A849B181204A6B1B0005781D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A849B183204A6B1B0005781D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A849B186204A6B1B0005781D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A849B188204A6B1B0005781D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A849B18B204A6B1B0005781D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A849B18D204A6B1B0005781D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A849B195204ABF6E0005781D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA94C0C9CEDB76EB8B49776F /* Pods-InstaForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaForecast.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaForecast/Pods-InstaForecast.release.xcconfig"; sourceTree = "<group>"; };
+		FBE89C84E5B2A1A1D49AE8C9 /* Pods_InstaForecast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaForecast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A849B17B204A6B1B0005781D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F736BBAC7DE2D6721D6B5D15 /* Pods_InstaForecast.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F65B1835FDCC6B972DC6718 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBE89C84E5B2A1A1D49AE8C9 /* Pods_InstaForecast.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A8165E2E2054EFE400E235B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A8165E2B2054ECC400E235B3 /* InstaInfo.swift */,
+				A8165E312055214400E235B3 /* TagPage.swift */,
+				A8165E332055217800E235B3 /* ProfilePage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A849B175204A6B1B0005781D = {
+			isa = PBXGroup;
+			children = (
+				A849B180204A6B1B0005781D /* InstaForecast */,
+				A849B17F204A6B1B0005781D /* Products */,
+				CB4487E3E1EC094CB0ED5CFA /* Pods */,
+				0F65B1835FDCC6B972DC6718 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A849B17F204A6B1B0005781D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A849B17E204A6B1B0005781D /* InstaForecast.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A849B180204A6B1B0005781D /* InstaForecast */ = {
+			isa = PBXGroup;
+			children = (
+				A849B183204A6B1B0005781D /* ViewController.swift */,
+				A849B185204A6B1B0005781D /* Main.storyboard */,
+				A849B18D204A6B1B0005781D /* Info.plist */,
+				A849B195204ABF6E0005781D /* Constants.swift */,
+				A849B194204A6BA20005781D /* Supporting Files */,
+				A8165E2E2054EFE400E235B3 /* Model */,
+			);
+			path = InstaForecast;
+			sourceTree = "<group>";
+		};
+		A849B194204A6BA20005781D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A849B181204A6B1B0005781D /* AppDelegate.swift */,
+				A849B188204A6B1B0005781D /* Assets.xcassets */,
+				A849B18A204A6B1B0005781D /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CB4487E3E1EC094CB0ED5CFA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64E2E618DF5DCDF83CDA816C /* Pods-InstaForecast.debug.xcconfig */,
+				FA94C0C9CEDB76EB8B49776F /* Pods-InstaForecast.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A849B17D204A6B1B0005781D /* InstaForecast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A849B190204A6B1B0005781D /* Build configuration list for PBXNativeTarget "InstaForecast" */;
+			buildPhases = (
+				D5FC5A5DBDCC5C282A5D6F84 /* [CP] Check Pods Manifest.lock */,
+				A849B17A204A6B1B0005781D /* Sources */,
+				A849B17B204A6B1B0005781D /* Frameworks */,
+				A849B17C204A6B1B0005781D /* Resources */,
+				E07BDC175738693299667ED9 /* [CP] Embed Pods Frameworks */,
+				C29597075C4F1F0EEA4A3682 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InstaForecast;
+			productName = InstaForecast;
+			productReference = A849B17E204A6B1B0005781D /* InstaForecast.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A849B176204A6B1B0005781D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Sihoon Oh";
+				TargetAttributes = {
+					A849B17D204A6B1B0005781D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A849B179204A6B1B0005781D /* Build configuration list for PBXProject "InstaForecast" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A849B175204A6B1B0005781D;
+			productRefGroup = A849B17F204A6B1B0005781D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A849B17D204A6B1B0005781D /* InstaForecast */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A849B17C204A6B1B0005781D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A849B18C204A6B1B0005781D /* LaunchScreen.storyboard in Resources */,
+				A849B189204A6B1B0005781D /* Assets.xcassets in Resources */,
+				A849B187204A6B1B0005781D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C29597075C4F1F0EEA4A3682 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstaForecast/Pods-InstaForecast-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5FC5A5DBDCC5C282A5D6F84 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InstaForecast-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E07BDC175738693299667ED9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-InstaForecast/Pods-InstaForecast-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstaForecast/Pods-InstaForecast-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A849B17A204A6B1B0005781D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A849B184204A6B1B0005781D /* ViewController.swift in Sources */,
+				A8165E2C2054ECC400E235B3 /* InstaInfo.swift in Sources */,
+				A8165E342055217800E235B3 /* ProfilePage.swift in Sources */,
+				A8165E322055214400E235B3 /* TagPage.swift in Sources */,
+				A849B182204A6B1B0005781D /* AppDelegate.swift in Sources */,
+				A849B196204ABF6E0005781D /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A849B185204A6B1B0005781D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A849B186204A6B1B0005781D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A849B18A204A6B1B0005781D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A849B18B204A6B1B0005781D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A849B18E204A6B1B0005781D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A849B18F204A6B1B0005781D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A849B191204A6B1B0005781D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64E2E618DF5DCDF83CDA816C /* Pods-InstaForecast.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LX9LZA6SJH;
+				INFOPLIST_FILE = InstaForecast/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sho59.InstaForecast;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A849B192204A6B1B0005781D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA94C0C9CEDB76EB8B49776F /* Pods-InstaForecast.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LX9LZA6SJH;
+				INFOPLIST_FILE = InstaForecast/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sho59.InstaForecast;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A849B179204A6B1B0005781D /* Build configuration list for PBXProject "InstaForecast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A849B18E204A6B1B0005781D /* Debug */,
+				A849B18F204A6B1B0005781D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A849B190204A6B1B0005781D /* Build configuration list for PBXNativeTarget "InstaForecast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A849B191204A6B1B0005781D /* Debug */,
+				A849B192204A6B1B0005781D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A849B176204A6B1B0005781D /* Project object */;
+}

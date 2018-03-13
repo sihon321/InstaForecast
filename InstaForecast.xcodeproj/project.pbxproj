@@ -10,6 +10,8 @@
 		A8165E2C2054ECC400E235B3 /* InstaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E2B2054ECC400E235B3 /* InstaInfo.swift */; };
 		A8165E322055214400E235B3 /* TagPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E312055214400E235B3 /* TagPage.swift */; };
 		A8165E342055217800E235B3 /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E332055217800E235B3 /* ProfilePage.swift */; };
+		A81757F52057F4B70082A625 /* WeartherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81757F42057F4B70082A625 /* WeartherViewController.swift */; };
+		A83755EC2056C6F000BD028D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83755EB2056C6F000BD028D /* Model.swift */; };
 		A849B182204A6B1B0005781D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849B181204A6B1B0005781D /* AppDelegate.swift */; };
 		A849B184204A6B1B0005781D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849B183204A6B1B0005781D /* ViewController.swift */; };
 		A849B187204A6B1B0005781D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A849B185204A6B1B0005781D /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 		A8165E2B2054ECC400E235B3 /* InstaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaInfo.swift; sourceTree = "<group>"; };
 		A8165E312055214400E235B3 /* TagPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagPage.swift; sourceTree = "<group>"; };
 		A8165E332055217800E235B3 /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
+		A81757F42057F4B70082A625 /* WeartherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeartherViewController.swift; sourceTree = "<group>"; };
+		A83755EB2056C6F000BD028D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A849B17E204A6B1B0005781D /* InstaForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A849B181204A6B1B0005781D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A849B183204A6B1B0005781D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 		A8165E2E2054EFE400E235B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A83755EB2056C6F000BD028D /* Model.swift */,
 				A8165E2B2054ECC400E235B3 /* InstaInfo.swift */,
 				A8165E312055214400E235B3 /* TagPage.swift */,
 				A8165E332055217800E235B3 /* ProfilePage.swift */,
@@ -93,6 +98,7 @@
 				A849B195204ABF6E0005781D /* Constants.swift */,
 				A849B194204A6BA20005781D /* Supporting Files */,
 				A8165E2E2054EFE400E235B3 /* Model */,
+				A81757F42057F4B70082A625 /* WeartherViewController.swift */,
 			);
 			path = InstaForecast;
 			sourceTree = "<group>";
@@ -227,12 +233,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-InstaForecast/Pods-InstaForecast-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -249,6 +257,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A81757F52057F4B70082A625 /* WeartherViewController.swift in Sources */,
+				A83755EC2056C6F000BD028D /* Model.swift in Sources */,
 				A849B184204A6B1B0005781D /* ViewController.swift in Sources */,
 				A8165E2C2054ECC400E235B3 /* InstaInfo.swift in Sources */,
 				A8165E342055217800E235B3 /* ProfilePage.swift in Sources */,

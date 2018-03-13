@@ -54,15 +54,25 @@ class ViewController: UIViewController {
     }
     
     @IBAction func searchButtonClick(_ sender: Any) {
-        word = searchTextField.text
-        parserInstaInfoFromHTML(word)
+        guard var word = searchTextField.text else {
+            return
+        }
+        var isHashtag = false
+        if word.hasPrefix("#") {
+            word = word.trimmingCharacters(in: ["#"])
+            isHashtag = true
+        }
+        parserInstaInfoFromHTML(word, isHashtag: isHashtag)
     }
     
-    func parserInstaInfoFromHTML(_ word: String?) {
+    func parserInstaInfoFromHTML(_ word: String, isHashtag: Bool) {
         do {
-            let hashTagURL = "https://www.instagram.com/tag/"
+            let hashTagURL = "https://www.instagram.com/tags/"
             let userURL = "https://www.instagram.com/"
-            guard let url = URL(string: "\(userURL)\(word!)") else {
+            let instaURL = isHashtag ? hashTagURL : userURL
+            
+            guard let encodingWord = word.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
+                let url = URL(string: "\(instaURL)\(encodingWord)") else {
                 return
             }
             
@@ -89,9 +99,11 @@ class ViewController: UIViewController {
             }
     
             instaInfo = Mapper<InstaInfo>().map(JSON: json)
-//            edges = instaInfo?.entryData?.tagPage?.first?.graphQL?.hashtag?.edgeHashtagToMedia?.edges
-            edges = instaInfo?.entryData?.profilePage?.first?.graphQL?.user?.edgeOwnerToTimelineMedia?.edges
-            
+            if isHashtag {
+                edges = instaInfo?.entryData?.tagPage?.first?.graphQL?.hashtag?.edgeHashtagToMedia?.edges
+            } else {
+                edges = instaInfo?.entryData?.profilePage?.first?.graphQL?.user?.edgeOwnerToTimelineMedia?.edges
+            }
         } catch {
             // handle error
             print(error)

@@ -9,4 +9,5 @@ target 'InstaForecast' do
   pod 'SwiftSoup'
   pod 'SwiftyJSON'
   pod 'ObjectMapper'
+  pod 'Alamofire', '~> 4.7'
 end

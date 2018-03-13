@@ -8,31 +8,19 @@
 
 import ObjectMapper
 
-class InstaInfo: NSObject, Mappable {
+class InstaInfo: Model {
     var entryData: EntryData?
-    
-    required public init?(map: Map) {
-        
-    }
-    
-    public func mapping(map: Map) {
+
+    override func mapping(map: Map) {
         entryData   <- map["entry_data"]
-    }
-    
-    override init() {
-        super.init()
     }
 }
 
-class EntryData: NSObject, Mappable {
+class EntryData: Model {
     var tagPage: [TagPage]?
     var profilePage: [ProfilePage]?
-    
-    required init?(map: Map) {
-        
-    }
-    
-    public func mapping(map: Map) {
+
+    override func mapping(map: Map) {
         tagPage   <- map["TagPage"]
         profilePage  <- map["ProfilePage"]
     }

@@ -8,38 +8,26 @@
 
 import ObjectMapper
 
-class ProfilePage: NSObject, Mappable {
+class ProfilePage: Model {
     var graphQL: GraphQL?
-    
-    required init?(map: Map) {
-        
-    }
-    
-    public func mapping(map: Map) {
+
+    override func mapping(map: Map) {
         graphQL   <- map["graphql"]
     }
 }
 
-class User: NSObject, Mappable {
+class User: Model {
     var edgeOwnerToTimelineMedia: EdgeOwnerToTimelineMedia?
-    
-    required init?(map: Map) {
-        
-    }
-    
-    public func mapping(map: Map) {
+
+    override func mapping(map: Map) {
         edgeOwnerToTimelineMedia   <- map["edge_owner_to_timeline_media"]
     }
 }
 
-class EdgeOwnerToTimelineMedia: NSObject, Mappable {
+class EdgeOwnerToTimelineMedia: Model {
     var edges: [Edges]?
-    
-    required init?(map: Map) {
-        
-    }
-    
-    public func mapping(map: Map) {
+
+    override func mapping(map: Map) {
         edges   <- map["edges"]
     }
 }

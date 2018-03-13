@@ -8,76 +8,52 @@
 
 import ObjectMapper
 
-class TagPage: NSObject, Mappable {
+class TagPage: Model {
     var graphQL: GraphQL?
-    
-    required init?(map: Map) {
-        
-    }
-    
-    public func mapping(map: Map) {
+
+    override func mapping(map: Map) {
         graphQL   <- map["graphql"]
     }
 }
 
-class GraphQL: NSObject, Mappable {
+class GraphQL: Model {
     var hashtag: Hashtag?
     var user: User?
-    
-    required init?(map: Map) {
-        
-    }
-    
-    public func mapping(map: Map) {
+
+    override func mapping(map: Map) {
         hashtag   <- map["hashtag"]
         user      <- map["user"]
     }
 }
 
-class Hashtag: NSObject, Mappable {
+class Hashtag: Model {
     var edgeHashtagToMedia: EdgeHashtagToMedia?
-    
-    required init?(map: Map) {
-        
-    }
-    
-    public func mapping(map: Map) {
+
+    override func mapping(map: Map) {
         edgeHashtagToMedia   <- map["edge_hashtag_to_media"]
     }
 }
 
-class EdgeHashtagToMedia: NSObject, Mappable {
+class EdgeHashtagToMedia: Model {
     var edges: [Edges]?
-    
-    required init?(map: Map) {
-        
-    }
-    
-    public func mapping(map: Map) {
+
+    override func mapping(map: Map) {
         edges   <- map["edges"]
     }
 }
 
-class Edges: NSObject, Mappable {
+class Edges: Model {
     var node: Node?
-    
-    required init?(map: Map) {
-        
-    }
-    
-    public func mapping(map: Map) {
+
+    override func mapping(map: Map) {
         node   <- map["node"]
     }
 }
 
-class Node: NSObject, Mappable {
+class Node: Model {
     var displayURL = ""
-    
-    required init?(map: Map) {
-        
-    }
-    
-    public func mapping(map: Map) {
+
+    override func mapping(map: Map) {
         displayURL   <- map["display_url"]
     }
 }

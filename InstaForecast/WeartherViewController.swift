@@ -8,17 +8,23 @@
 
 import UIKit
 import Alamofire
+import ObjectMapper
 
 class WeartherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        var weatherInfo: WeatherInfo?
+        
         Alamofire.request("http://api.openweathermap.org/data/2.5/forecast", method: .get,
-                          parameters: ["q":"London", "mode":"json", "appid": "5a05f152802650624cd2750f0b7f8c5e"])
-            .response {
+                          parameters: ["q":"Seoul", "mode":"json", "appid": "5a05f152802650624cd2750f0b7f8c5e"])
+            .responseJSON {
                 response in
-                debugPrint(response.data)
+                if let result = response.result.value {
+                    let json = result as? [String: Any]
+                    weatherInfo = Mapper<WeatherInfo>().map(JSON: json!)
+                    
+                }
         }
     }
 

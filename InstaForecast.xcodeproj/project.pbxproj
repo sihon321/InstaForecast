@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D75B5C7205A429F00FF83FB /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D75B5C6205A429F00FF83FB /* WeatherInfo.swift */; };
 		A8165E2C2054ECC400E235B3 /* InstaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E2B2054ECC400E235B3 /* InstaInfo.swift */; };
 		A8165E322055214400E235B3 /* TagPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E312055214400E235B3 /* TagPage.swift */; };
 		A8165E342055217800E235B3 /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E332055217800E235B3 /* ProfilePage.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D75B5C6205A429F00FF83FB /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 		64E2E618DF5DCDF83CDA816C /* Pods-InstaForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaForecast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaForecast/Pods-InstaForecast.debug.xcconfig"; sourceTree = "<group>"; };
 		A8165E2B2054ECC400E235B3 /* InstaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaInfo.swift; sourceTree = "<group>"; };
 		A8165E312055214400E235B3 /* TagPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagPage.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				A8165E2B2054ECC400E235B3 /* InstaInfo.swift */,
 				A8165E312055214400E235B3 /* TagPage.swift */,
 				A8165E332055217800E235B3 /* ProfilePage.swift */,
+				3D75B5C6205A429F00FF83FB /* WeatherInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -93,12 +96,12 @@
 			isa = PBXGroup;
 			children = (
 				A849B183204A6B1B0005781D /* ViewController.swift */,
+				A81757F42057F4B70082A625 /* WeartherViewController.swift */,
 				A849B185204A6B1B0005781D /* Main.storyboard */,
 				A849B18D204A6B1B0005781D /* Info.plist */,
 				A849B195204ABF6E0005781D /* Constants.swift */,
 				A849B194204A6BA20005781D /* Supporting Files */,
 				A8165E2E2054EFE400E235B3 /* Model */,
-				A81757F42057F4B70082A625 /* WeartherViewController.swift */,
 			);
 			path = InstaForecast;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				A8165E322055214400E235B3 /* TagPage.swift in Sources */,
 				A849B182204A6B1B0005781D /* AppDelegate.swift in Sources */,
 				A849B196204ABF6E0005781D /* Constants.swift in Sources */,
+				3D75B5C7205A429F00FF83FB /* WeatherInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

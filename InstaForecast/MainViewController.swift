@@ -53,6 +53,7 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         searchButtonClick()
+        requestForecastInfo()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -75,6 +76,7 @@ extension MainViewController {
                                             self.weatherInfo = forecast
                                             print(forecast.city?.name)
                                             print(Double((forecast.list?.first?.listMain?.temp)!) - 273.15)
+        })
     }
 }
 

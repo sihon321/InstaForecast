@@ -11,14 +11,14 @@
 		A8165E2C2054ECC400E235B3 /* InstaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E2B2054ECC400E235B3 /* InstaInfo.swift */; };
 		A8165E322055214400E235B3 /* TagPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E312055214400E235B3 /* TagPage.swift */; };
 		A8165E342055217800E235B3 /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E332055217800E235B3 /* ProfilePage.swift */; };
-		A81757F52057F4B70082A625 /* WeartherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81757F42057F4B70082A625 /* WeartherViewController.swift */; };
+		A82B3F37205D230200AFD583 /* ForecastProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82B3F36205D230200AFD583 /* ForecastProvider.swift */; };
 		A83755EC2056C6F000BD028D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83755EB2056C6F000BD028D /* Model.swift */; };
+		A83DA4F3205C12E60072DE14 /* ForecastRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83DA4F2205C12E60072DE14 /* ForecastRouter.swift */; };
 		A849B182204A6B1B0005781D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849B181204A6B1B0005781D /* AppDelegate.swift */; };
-		A849B184204A6B1B0005781D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849B183204A6B1B0005781D /* ViewController.swift */; };
+		A849B184204A6B1B0005781D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849B183204A6B1B0005781D /* MainViewController.swift */; };
 		A849B187204A6B1B0005781D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A849B185204A6B1B0005781D /* Main.storyboard */; };
 		A849B189204A6B1B0005781D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A849B188204A6B1B0005781D /* Assets.xcassets */; };
 		A849B18C204A6B1B0005781D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A849B18A204A6B1B0005781D /* LaunchScreen.storyboard */; };
-		A849B196204ABF6E0005781D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849B195204ABF6E0005781D /* Constants.swift */; };
 		F736BBAC7DE2D6721D6B5D15 /* Pods_InstaForecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE89C84E5B2A1A1D49AE8C9 /* Pods_InstaForecast.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,16 +28,16 @@
 		A8165E2B2054ECC400E235B3 /* InstaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaInfo.swift; sourceTree = "<group>"; };
 		A8165E312055214400E235B3 /* TagPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagPage.swift; sourceTree = "<group>"; };
 		A8165E332055217800E235B3 /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
-		A81757F42057F4B70082A625 /* WeartherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeartherViewController.swift; sourceTree = "<group>"; };
+		A82B3F36205D230200AFD583 /* ForecastProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastProvider.swift; sourceTree = "<group>"; };
 		A83755EB2056C6F000BD028D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		A83DA4F2205C12E60072DE14 /* ForecastRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRouter.swift; sourceTree = "<group>"; };
 		A849B17E204A6B1B0005781D /* InstaForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A849B181204A6B1B0005781D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A849B183204A6B1B0005781D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A849B183204A6B1B0005781D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A849B186204A6B1B0005781D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A849B188204A6B1B0005781D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A849B18B204A6B1B0005781D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A849B18D204A6B1B0005781D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A849B195204ABF6E0005781D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA94C0C9CEDB76EB8B49776F /* Pods-InstaForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaForecast.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaForecast/Pods-InstaForecast.release.xcconfig"; sourceTree = "<group>"; };
 		FBE89C84E5B2A1A1D49AE8C9 /* Pods_InstaForecast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaForecast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -74,6 +74,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A82B3F38205D23CD00AFD583 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A83DA4F2205C12E60072DE14 /* ForecastRouter.swift */,
+				A82B3F36205D230200AFD583 /* ForecastProvider.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		A849B175204A6B1B0005781D = {
 			isa = PBXGroup;
 			children = (
@@ -95,13 +104,12 @@
 		A849B180204A6B1B0005781D /* InstaForecast */ = {
 			isa = PBXGroup;
 			children = (
-				A849B183204A6B1B0005781D /* ViewController.swift */,
-				A81757F42057F4B70082A625 /* WeartherViewController.swift */,
+				A849B183204A6B1B0005781D /* MainViewController.swift */,
 				A849B185204A6B1B0005781D /* Main.storyboard */,
 				A849B18D204A6B1B0005781D /* Info.plist */,
-				A849B195204ABF6E0005781D /* Constants.swift */,
-				A849B194204A6BA20005781D /* Supporting Files */,
+				A82B3F38205D23CD00AFD583 /* API */,
 				A8165E2E2054EFE400E235B3 /* Model */,
+				A849B194204A6BA20005781D /* Supporting Files */,
 			);
 			path = InstaForecast;
 			sourceTree = "<group>";
@@ -260,14 +268,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A81757F52057F4B70082A625 /* WeartherViewController.swift in Sources */,
 				A83755EC2056C6F000BD028D /* Model.swift in Sources */,
-				A849B184204A6B1B0005781D /* ViewController.swift in Sources */,
+				A849B184204A6B1B0005781D /* MainViewController.swift in Sources */,
 				A8165E2C2054ECC400E235B3 /* InstaInfo.swift in Sources */,
 				A8165E342055217800E235B3 /* ProfilePage.swift in Sources */,
 				A8165E322055214400E235B3 /* TagPage.swift in Sources */,
 				A849B182204A6B1B0005781D /* AppDelegate.swift in Sources */,
-				A849B196204ABF6E0005781D /* Constants.swift in Sources */,
+				A83DA4F3205C12E60072DE14 /* ForecastRouter.swift in Sources */,
+				A82B3F37205D230200AFD583 /* ForecastProvider.swift in Sources */,
 				3D75B5C7205A429F00FF83FB /* WeatherInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

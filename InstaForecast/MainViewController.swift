@@ -11,18 +11,20 @@ import SwiftSoup
 import SwiftyJSON
 import ObjectMapper
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var instaImageView: UIImageView!
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
+    private var weatherInfo: WeatherInfo?
+    
     private var index = 0 {
         didSet {
             do {
-                guard let node = edges?[index].node,
+
+                guard edges?.isEmpty == false, 
+                    let node = edges?[index].node,
                     let url = URL(string: node.displayURL) else {
                         return
                 }
@@ -46,15 +48,39 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        searchButtonClick()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func searchButtonClick(_ sender: Any) {
-        guard var word = searchTextField.text else {
+}
+
+extension MainViewController {
+    func requestForecastInfo() {
+        var cityName = "Seoul"
+        
+        ForecastProvider.downloadForecast(cityName: cityName,
+                                          completion: { [unowned self] forecast in
+                                            self.weatherInfo = forecast
+                                            print(forecast.city?.name)
+                                            print(Double((forecast.list?.first?.listMain?.temp)!) - 273.15)
+    }
+}
+
+extension MainViewController {
+    func searchButtonClick() {
+        guard var word = "#한강" as? String else {
             return
         }
         var isHashtag = false
@@ -73,7 +99,7 @@ class ViewController: UIViewController {
             
             guard let encodingWord = word.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
                 let url = URL(string: "\(instaURL)\(encodingWord)") else {
-                return
+                    return
             }
             
             let html = try String(contentsOf: url)
@@ -95,9 +121,9 @@ class ViewController: UIViewController {
             jsonString = jsonString.trimmingCharacters(in: [";"])
             guard let jsonData = jsonString.data(using: .utf8),
                 let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String: Any]else {
-                return
+                    return
             }
-    
+            
             instaInfo = Mapper<InstaInfo>().map(JSON: json)
             if isHashtag {
                 edges = instaInfo?.entryData?.tagPage?.first?.graphQL?.hashtag?.edgeHashtagToMedia?.edges

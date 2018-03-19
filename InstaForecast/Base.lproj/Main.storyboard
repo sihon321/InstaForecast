@@ -77,45 +77,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cqt-Nk-Epl">
+                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ye1-qw-019">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cqt-Nk-Epl">
                                 <rect key="frame" x="16" y="64" width="343" height="559"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BDc-zW-3Bg">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="250" height="130"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9Na-6E-0XS">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="46.5" y="0.0" width="250" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="izj-RD-op6" id="Aw0-L2-bYP"/>
+                                    <outlet property="delegate" destination="izj-RD-op6" id="TW4-qT-kKo"/>
+                                </connections>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ye1-qw-019">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaY-Kf-cz4">
-                                <rect key="frame" x="16" y="74" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="이전"/>
-                                <connections>
-                                    <action selector="clickPrevButton:" destination="izj-RD-op6" eventType="touchUpInside" id="XWF-JF-Lgb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amo-CB-b0h">
-                                <rect key="frame" x="313" y="74" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="다음"/>
-                                <connections>
-                                    <action selector="clickNextButton:" destination="izj-RD-op6" eventType="touchUpInside" id="VE6-eT-YlW"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -131,7 +119,8 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Cft-lz-EIe">
-                        <barButtonItem key="rightBarButtonItem" title="Setting" id="nTQ-yS-Uy6">
+                        <barButtonItem key="rightBarButtonItem" image="more_btn_v1" style="done" id="nTQ-yS-Uy6">
+                            <inset key="largeContentSizeImageInsets" minX="3" minY="0.0" maxX="3" maxY="0.0"/>
                             <connections>
                                 <segue destination="uVc-BH-O39" kind="show" id="79S-Wx-Tif"/>
                             </connections>
@@ -139,10 +128,9 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="collectionView" destination="cqt-Nk-Epl" id="Rn6-p4-thP"/>
                         <outlet property="instaImageView" destination="Ye1-qw-019" id="CqI-Sq-sLC"/>
                         <outlet property="navigationItem" destination="Cft-lz-EIe" id="vlQ-uo-ST1"/>
-                        <outlet property="nextButton" destination="amo-CB-b0h" id="dBd-Ll-7mm"/>
-                        <outlet property="prevButton" destination="AaY-Kf-cz4" id="BVP-oY-nJb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4Q-2z-aub" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -150,4 +138,8 @@
             <point key="canvasLocation" x="1629.5999999999999" y="196.55172413793105"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="more_btn_v1" width="11" height="9"/>
+    </resources>
+    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

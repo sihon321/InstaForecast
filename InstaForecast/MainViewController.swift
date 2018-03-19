@@ -16,9 +16,11 @@ class MainViewController: UIViewController {
     @IBOutlet weak var instaImageView: UIImageView!
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     private var weatherInfo: WeatherInfo?
-    
+    private var weatherList: [List]?
+
     private var index = 0 {
         didSet {
             do {
@@ -48,10 +50,14 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let nibName = UINib(nibName: "TempCollectionViewCell", bundle:nil)
+        self.collectionView.register(nibName, forCellWithReuseIdentifier: "TempCollectionViewCell")
+        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        initGesture()
         searchButtonClick()
         requestForecastInfo()
     }
@@ -74,9 +80,34 @@ extension MainViewController {
         ForecastProvider.downloadForecast(cityName: cityName,
                                           completion: { [unowned self] forecast in
                                             self.weatherInfo = forecast
-                                            print(forecast.city?.name)
-                                            print(Double((forecast.list?.first?.listMain?.temp)!) - 273.15)
+                                            self.weatherList = self.weatherInfo?.list
+                                            self.collectionView.reloadData()
         })
+    }
+}
+
+extension MainViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TempCollectionViewCell", for: indexPath) as! TempCollectionViewCell
+        if let info = weatherList?.first {
+            cell.configure(info)
+        }
+        
+        return cell
+    }
+}
+
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return TempCollectionViewCell.cellSize()
     }
 }
 
@@ -138,18 +169,22 @@ extension MainViewController {
         }
     }
     
-    @IBAction func clickPrevButton(_ sender: Any) {
-        guard let edgesCount = edges?.count else {
-            return
-        }
-        if index <= 0 {
-            index = edgesCount - 1
-        } else {
-            index -= 1
-        }
+}
+
+extension MainViewController {
+    func initGesture() {
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeRightGesture(recognizer:)))
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeLeftGesture(recognizer:)))
+        
+        swipeRight.direction = .right
+        swipeLeft.direction = .left
+        
+        collectionView.gestureRecognizers?.append(swipeRight)
+        collectionView.gestureRecognizers?.append(swipeLeft)
     }
     
-    @IBAction func clickNextButton(_ sender: Any) {
+    @IBAction func handleSwipeRightGesture(recognizer: UISwipeGestureRecognizer) {
         guard let edgesCount = edges?.count else {
             return
         }
@@ -159,5 +194,14 @@ extension MainViewController {
             index += 1
         }
     }
+    @IBAction func handleSwipeLeftGesture(recognizer: UISwipeGestureRecognizer) {
+        guard let edgesCount = edges?.count else {
+            return
+        }
+        if index <= 0 {
+            index = edgesCount - 1
+        } else {
+            index -= 1
+        }
+    }
 }
-

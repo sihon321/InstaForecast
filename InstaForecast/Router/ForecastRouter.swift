@@ -11,7 +11,7 @@ import Alamofire
 
 public enum ForecastRouter: URLRequestConvertible {
     static let baseURLPath = "http://api.openweathermap.org/data/2.5/"
-    static let authenticationToken = "5a05f152802650624cd2750f0b7f8c5e"
+    static let authenticationToken = ""
     
     case forecast(String)
     

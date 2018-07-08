@@ -150,8 +150,6 @@
 		A849B180204A6B1B0005781D /* InstaForecast */ = {
 			isa = PBXGroup;
 			children = (
-				A849B183204A6B1B0005781D /* MainViewController.swift */,
-				A849B185204A6B1B0005781D /* Main.storyboard */,
 				A849B18D204A6B1B0005781D /* Info.plist */,
 				A82B3F39205E2FAF00AFD583 /* Cell */,
 				A82B3F38205D23CD00AFD583 /* Router */,
@@ -159,6 +157,8 @@
 				A8165E2E2054EFE400E235B3 /* Model */,
 				A81E208C20F1EB3600B23C07 /* Instagram */,
 				A81E208D20F1EB4600B23C07 /* Forecast */,
+				A849B183204A6B1B0005781D /* MainViewController.swift */,
+				A849B185204A6B1B0005781D /* Main.storyboard */,
 				A849B194204A6BA20005781D /* Supporting Files */,
 			);
 			path = InstaForecast;

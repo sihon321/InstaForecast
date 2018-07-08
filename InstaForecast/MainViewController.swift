@@ -82,21 +82,12 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension MainViewController: InstaImageDelegate {
-    func searchImageDidChaged() {
-        do {
-            guard instaViewModel.edges?.isEmpty == false,
-                let edges = instaViewModel.edges,
-                let node = edges[instaViewModel.index].node,
-                let url = URL(string: node.displayURL) else {
-                    return
-            }
-            
-            let data = try Data(contentsOf: url)
-            let image = UIImage(data: data)
-            instaImageView.image = image
-        } catch {
-            print(error.localizedDescription)
+    func searchImageDidChanged() {
+        guard let data = instaViewModel.imageData else {
+            return
         }
+        let image = UIImage(data: data)
+        instaImageView.image = image
     }
     
     func searchButtonClick() {

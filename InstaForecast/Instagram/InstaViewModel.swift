@@ -9,15 +9,16 @@
 import Foundation
 
 protocol InstaImageDelegate {
-    func searchImageDidChaged()
+    func searchImageDidChanged()
 }
 
 protocol InstaImageViewModelType {
     var delegate: InstaImageDelegate? { get set }
-    var edges: [Edges]? { get set }
+    var edges: [Edges]? { get }
     var isHashtag: Bool { get }
     var word: String { get set }
     var index: Int { get set }
+    var imageData: Data? { get }
 }
 
 class InstaViewModel: InstaImageViewModelType {
@@ -45,8 +46,24 @@ class InstaViewModel: InstaImageViewModelType {
     }
     var index = 0 {
         didSet {
+            guard edges?.isEmpty == false,
+                let edges = edges,
+                let node = edges[index].node,
+                let url = URL(string: node.displayURL) else {
+                    return
+            }
+            
+            do {
+                imageData = try Data(contentsOf: url)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    var imageData: Data? {
+        didSet {
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(200)) {
-                self.delegate?.searchImageDidChaged()
+                self.delegate?.searchImageDidChanged()
             }
         }
     }

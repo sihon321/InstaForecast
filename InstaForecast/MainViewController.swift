@@ -18,34 +18,13 @@ class MainViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // TODO: test code, input word that you want
+    private var word = "#한강"
+    
+    private var instaViewModel: InstaImageViewModelType!
+    
     private var weatherInfo: WeatherInfo?
     private var weatherList: [List]?
-
-    private var index = 0 {
-        didSet {
-            do {
-
-                guard edges?.isEmpty == false, 
-                    let node = edges?[index].node,
-                    let url = URL(string: node.displayURL) else {
-                        return
-                }
-                
-                let data = try Data(contentsOf: url)
-                let image = UIImage(data: data)
-                instaImageView.image = image
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-    }
-    private var instaInfo: InstaInfo?
-    private var edges: [Edges]? {
-        didSet {
-            index = 0
-        }
-    }
-    private var word: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +36,10 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        
+        instaViewModel = InstaViewModel(service: InstaImageService())
+        instaViewModel.delegate = self
+        
         initGesture()
         searchButtonClick()
         requestForecastInfo()
@@ -70,19 +53,6 @@ class MainViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-}
-
-extension MainViewController {
-    func requestForecastInfo() {
-        var cityName = "Seoul"
-        
-        ForecastProvider.downloadForecast(cityName: cityName,
-                                          completion: { [unowned self] forecast in
-                                            self.weatherInfo = forecast
-                                            self.weatherList = self.weatherInfo?.list
-                                            self.collectionView.reloadData()
-        })
     }
 }
 
@@ -111,69 +81,43 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension MainViewController {
-    func searchButtonClick() {
-        guard var word = "#한강" as? String else {
-            return
-        }
-        var isHashtag = false
-        if word.hasPrefix("#") {
-            word = word.trimmingCharacters(in: ["#"])
-            isHashtag = true
-        }
-        parserInstaInfoFromHTML(word, isHashtag: isHashtag)
-    }
-    
-    func parserInstaInfoFromHTML(_ word: String, isHashtag: Bool) {
+extension MainViewController: InstaImageDelegate {
+    func searchImageDidChaged() {
         do {
-            let hashTagURL = "https://www.instagram.com/tags/"
-            let userURL = "https://www.instagram.com/"
-            let instaURL = isHashtag ? hashTagURL : userURL
-            
-            guard let encodingWord = word.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
-                let url = URL(string: "\(instaURL)\(encodingWord)") else {
+            guard instaViewModel.edges?.isEmpty == false,
+                let edges = instaViewModel.edges,
+                let node = edges[instaViewModel.index].node,
+                let url = URL(string: node.displayURL) else {
                     return
             }
             
-            let html = try String(contentsOf: url)
-            let doc = try SwiftSoup.parseBodyFragment(html)
-            let body = try doc.getElementsByTag("script")
-            var str: String?
-            for element in body {
-                str = element.dataNodes().filter { $0.getWholeData().hasPrefix("window._sharedData =") }.first?.getWholeData()
-                if str != nil {
-                    break
-                }
-            }
-            
-            guard let data = str else {
-                return
-            }
-            let deprecatedString = "window._sharedData = "
-            var jsonString = String(data[deprecatedString.endIndex...])
-            jsonString = jsonString.trimmingCharacters(in: [";"])
-            guard let jsonData = jsonString.data(using: .utf8),
-                let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String: Any]else {
-                    return
-            }
-            
-            instaInfo = Mapper<InstaInfo>().map(JSON: json)
-            if isHashtag {
-                edges = instaInfo?.entryData?.tagPage?.first?.graphQL?.hashtag?.edgeHashtagToMedia?.edges
-            } else {
-                edges = instaInfo?.entryData?.profilePage?.first?.graphQL?.user?.edgeOwnerToTimelineMedia?.edges
-            }
+            let data = try Data(contentsOf: url)
+            let image = UIImage(data: data)
+            instaImageView.image = image
         } catch {
-            // handle error
-            print(error)
+            print(error.localizedDescription)
         }
     }
     
+    func searchButtonClick() {
+        instaViewModel.word = self.word
+    }
+    
+    func requestForecastInfo() {
+        var cityName = "Seoul"
+        
+        ForecastProvider.downloadForecast(cityName: cityName,
+                                          completion: { [unowned self] forecast in
+                                            self.weatherInfo = forecast
+                                            self.weatherList = self.weatherInfo?.list
+                                            self.collectionView.reloadData()
+        })
+    }
 }
 
+// MARK: setup UISwipeGestureRecognizer
 extension MainViewController {
     func initGesture() {
-        
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeRightGesture(recognizer:)))
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeLeftGesture(recognizer:)))
         
@@ -185,23 +129,25 @@ extension MainViewController {
     }
     
     @IBAction func handleSwipeRightGesture(recognizer: UISwipeGestureRecognizer) {
-        guard let edgesCount = edges?.count else {
+        guard let edgesCount = instaViewModel.edges?.count else {
             return
         }
-        if edgesCount - 1 <= index {
-            index = 0
+        
+        if edgesCount - 1 <= instaViewModel.index {
+            instaViewModel.index = 0
         } else {
-            index += 1
+            instaViewModel.index += 1
         }
     }
     @IBAction func handleSwipeLeftGesture(recognizer: UISwipeGestureRecognizer) {
-        guard let edgesCount = edges?.count else {
+        guard let edgesCount = instaViewModel.edges?.count else {
             return
         }
-        if index <= 0 {
-            index = edgesCount - 1
+        
+        if instaViewModel.index <= 0 {
+            instaViewModel.index = edgesCount - 1
         } else {
-            index -= 1
+            instaViewModel.index -= 1
         }
     }
 }

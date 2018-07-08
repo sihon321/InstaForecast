@@ -11,6 +11,10 @@
 		A8165E2C2054ECC400E235B3 /* InstaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E2B2054ECC400E235B3 /* InstaInfo.swift */; };
 		A8165E322055214400E235B3 /* TagPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E312055214400E235B3 /* TagPage.swift */; };
 		A8165E342055217800E235B3 /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8165E332055217800E235B3 /* ProfilePage.swift */; };
+		A81E208F20F1EC0100B23C07 /* InstaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81E208E20F1EC0100B23C07 /* InstaRouter.swift */; };
+		A81E209120F1ECEA00B23C07 /* InstaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81E209020F1ECEA00B23C07 /* InstaViewModel.swift */; };
+		A81E209720F1F1EC00B23C07 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81E209620F1F1EC00B23C07 /* Service.swift */; };
+		A81E209920F1F29D00B23C07 /* InstaImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81E209820F1F29D00B23C07 /* InstaImageService.swift */; };
 		A82B3F37205D230200AFD583 /* ForecastProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82B3F36205D230200AFD583 /* ForecastProvider.swift */; };
 		A82B3F40205E361700AFD583 /* TempCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82B3F3E205E361700AFD583 /* TempCollectionViewCell.swift */; };
 		A82B3F41205E361700AFD583 /* TempCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B3F3F205E361700AFD583 /* TempCollectionViewCell.xib */; };
@@ -30,6 +34,10 @@
 		A8165E2B2054ECC400E235B3 /* InstaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaInfo.swift; sourceTree = "<group>"; };
 		A8165E312055214400E235B3 /* TagPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagPage.swift; sourceTree = "<group>"; };
 		A8165E332055217800E235B3 /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
+		A81E208E20F1EC0100B23C07 /* InstaRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaRouter.swift; sourceTree = "<group>"; };
+		A81E209020F1ECEA00B23C07 /* InstaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaViewModel.swift; sourceTree = "<group>"; };
+		A81E209620F1F1EC00B23C07 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		A81E209820F1F29D00B23C07 /* InstaImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaImageService.swift; sourceTree = "<group>"; };
 		A82B3F36205D230200AFD583 /* ForecastProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastProvider.swift; sourceTree = "<group>"; };
 		A82B3F3E205E361700AFD583 /* TempCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCollectionViewCell.swift; sourceTree = "<group>"; };
 		A82B3F3F205E361700AFD583 /* TempCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TempCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -78,13 +86,38 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		A82B3F38205D23CD00AFD583 /* API */ = {
+		A81E208C20F1EB3600B23C07 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				A81E209020F1ECEA00B23C07 /* InstaViewModel.swift */,
+			);
+			path = Instagram;
+			sourceTree = "<group>";
+		};
+		A81E208D20F1EB4600B23C07 /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Forecast;
+			sourceTree = "<group>";
+		};
+		A81E209520F1F1AC00B23C07 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A81E209620F1F1EC00B23C07 /* Service.swift */,
+				A81E209820F1F29D00B23C07 /* InstaImageService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A82B3F38205D23CD00AFD583 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A81E208E20F1EC0100B23C07 /* InstaRouter.swift */,
 				A83DA4F2205C12E60072DE14 /* ForecastRouter.swift */,
 				A82B3F36205D230200AFD583 /* ForecastProvider.swift */,
 			);
-			path = API;
+			path = Router;
 			sourceTree = "<group>";
 		};
 		A82B3F39205E2FAF00AFD583 /* Cell */ = {
@@ -121,8 +154,11 @@
 				A849B185204A6B1B0005781D /* Main.storyboard */,
 				A849B18D204A6B1B0005781D /* Info.plist */,
 				A82B3F39205E2FAF00AFD583 /* Cell */,
-				A82B3F38205D23CD00AFD583 /* API */,
+				A82B3F38205D23CD00AFD583 /* Router */,
+				A81E209520F1F1AC00B23C07 /* Service */,
 				A8165E2E2054EFE400E235B3 /* Model */,
+				A81E208C20F1EB3600B23C07 /* Instagram */,
+				A81E208D20F1EB4600B23C07 /* Forecast */,
 				A849B194204A6BA20005781D /* Supporting Files */,
 			);
 			path = InstaForecast;
@@ -283,6 +319,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A81E209920F1F29D00B23C07 /* InstaImageService.swift in Sources */,
+				A81E209720F1F1EC00B23C07 /* Service.swift in Sources */,
 				A83755EC2056C6F000BD028D /* Model.swift in Sources */,
 				A849B184204A6B1B0005781D /* MainViewController.swift in Sources */,
 				A82B3F40205E361700AFD583 /* TempCollectionViewCell.swift in Sources */,
@@ -292,6 +330,8 @@
 				A849B182204A6B1B0005781D /* AppDelegate.swift in Sources */,
 				A83DA4F3205C12E60072DE14 /* ForecastRouter.swift in Sources */,
 				A82B3F37205D230200AFD583 /* ForecastProvider.swift in Sources */,
+				A81E208F20F1EC0100B23C07 /* InstaRouter.swift in Sources */,
+				A81E209120F1ECEA00B23C07 /* InstaViewModel.swift in Sources */,
 				3D75B5C7205A429F00FF83FB /* WeatherInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

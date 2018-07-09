@@ -14,8 +14,6 @@ import ObjectMapper
 class MainViewController: UIViewController {
 
     @IBOutlet weak var instaImageView: UIImageView!
-    @IBOutlet weak var prevButton: UIButton!
-    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
     // TODO: test code, input word that you want
@@ -37,7 +35,7 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         
-        instaViewModel = InstaViewModel(service: InstaImageService())
+        instaViewModel = InstaViewModel(service: InstaImageService()) as! InstaImageViewModelType
         instaViewModel.delegate = self
         
         initGesture()

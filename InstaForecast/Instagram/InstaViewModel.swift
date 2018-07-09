@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol InstaImageDelegate {
+protocol InstaImageDelegate: class {
     func searchImageDidChanged()
 }
 
@@ -22,7 +22,7 @@ protocol InstaImageViewModelType {
 }
 
 class InstaViewModel: InstaImageViewModelType {
-    var delegate: InstaImageDelegate?
+    weak var delegate: InstaImageDelegate?
     
     var edges: [Edges]? {
         didSet {

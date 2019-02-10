@@ -8,12 +8,10 @@
 
 import Foundation
 import SwiftSoup
-import SwiftyJSON
-import ObjectMapper
 
 class InstaImageService {
 
-    func parseInstaInfoFromHTML(_ router: InstaRouter, closure: ([Edges]?) -> Void) {
+    func parseInstaInfoFromHTML(_ router: InstaRouter, closure: ([EdgeHashtagToMediaEdge]?) -> Void) {
         do {
             guard let url = URL(string: router.path.0) else {
                 return
@@ -37,16 +35,16 @@ class InstaImageService {
             let deprecatedString = "window._sharedData = "
             var jsonString = String(data[deprecatedString.endIndex...])
             jsonString = jsonString.trimmingCharacters(in: [";"])
-            guard let jsonData = jsonString.data(using: .utf8),
-                let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String: Any]else {
+          
+            guard let jsonData = jsonString.data(using: .utf8) else {
                     return
             }
-            
-            let instaInfo = Mapper<InstaInfo>().map(JSON: json)
+            let instaInfo = try JSONDecoder().decode(InstaInfo.self,
+                                                     from: jsonData)
             if isHashtag {
-                return closure(instaInfo?.entryData?.tagPage?.first?.graphQL?.hashtag?.edgeHashtagToMedia?.edges)
+              return closure(instaInfo.entryData.tagPage?.first?.graphql?.hashtag?.edgeHashtagToMedia.edges)
             } else {
-                return closure(instaInfo?.entryData?.profilePage?.first?.graphQL?.user?.edgeOwnerToTimelineMedia?.edges)
+              return closure(instaInfo.entryData.profilePage?.first?.graphql?.user?.edgeOwnerToTimelineMedia.edges)
             }
         } catch {
             // handle error

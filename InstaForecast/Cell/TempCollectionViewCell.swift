@@ -20,12 +20,12 @@ class TempCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(_ info: List) {
-        tempLabel.text = String(describing: (info.listMain?.temp)! - 273)
-        humidityLabel.text = String(describing: (info.listMain?.humidity)!) + "%"
-        windLabel.text = String(describing: (info.listWind?.speed)!) + " m/s"
+      tempLabel.text = String(describing: info.main?.temp ?? 273 - 273)
+      humidityLabel.text = String(describing: info.main?.humidity ?? 0) + "%"
+      windLabel.text = String(describing: info.wind?.speed ?? 0) + " m/s"
     }
     
     static func cellSize() -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.size.width, height: 135)
+        return CGSize(width: UIScreen.main.bounds.size.width - 30.0, height: 135)
     }
 }

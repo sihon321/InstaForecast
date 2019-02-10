@@ -7,7 +7,5 @@ target 'InstaForecast' do
 
   # Pods for InstaForecast
   pod 'SwiftSoup'
-  pod 'SwiftyJSON'
-  pod 'ObjectMapper'
   pod 'Alamofire', '~> 4.7'
 end

@@ -14,7 +14,7 @@ protocol InstaImageDelegate: class {
 
 protocol InstaImageViewModelType {
     var delegate: InstaImageDelegate? { get set }
-    var edges: [Edges]? { get }
+    var edges: [EdgeHashtagToMediaEdge]? { get }
     var isHashtag: Bool { get }
     var word: String { get set }
     var index: Int { get set }
@@ -24,7 +24,7 @@ protocol InstaImageViewModelType {
 class InstaViewModel: InstaImageViewModelType {
     weak var delegate: InstaImageDelegate?
     
-    var edges: [Edges]? {
+    var edges: [EdgeHashtagToMediaEdge]? {
         didSet {
             index = 0
         }
@@ -48,8 +48,7 @@ class InstaViewModel: InstaImageViewModelType {
         didSet {
             guard edges?.isEmpty == false,
                 let edges = edges,
-                let node = edges[index].node,
-                let url = URL(string: node.displayURL) else {
+                let url = URL(string: edges[index].node.displayURL) else {
                     return
             }
             
@@ -75,7 +74,8 @@ class InstaViewModel: InstaImageViewModelType {
     }
     
     func performSearch(_ isHashtag: Bool) {
-        service.parseInstaInfoFromHTML(InstaRouter.search(word: word, isHashtag: isHashtag)) { [weak self] edges in
+        service.parseInstaInfoFromHTML(InstaRouter.search(word: word,
+                                                          isHashtag: isHashtag)) { [weak self] edges in
             self?.edges = edges
         }
     }

@@ -19,7 +19,6 @@
 		A82B3F40205E361700AFD583 /* TempCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82B3F3E205E361700AFD583 /* TempCollectionViewCell.swift */; };
 		A82B3F41205E361700AFD583 /* TempCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B3F3F205E361700AFD583 /* TempCollectionViewCell.xib */; };
 		A82B3F4A205E6BF800AFD583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82B3F49205E6BF800AFD583 /* Assets.xcassets */; };
-		A83755EC2056C6F000BD028D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83755EB2056C6F000BD028D /* Model.swift */; };
 		A83DA4F3205C12E60072DE14 /* ForecastRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83DA4F2205C12E60072DE14 /* ForecastRouter.swift */; };
 		A849B182204A6B1B0005781D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849B181204A6B1B0005781D /* AppDelegate.swift */; };
 		A849B184204A6B1B0005781D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849B183204A6B1B0005781D /* MainViewController.swift */; };
@@ -42,7 +41,6 @@
 		A82B3F3E205E361700AFD583 /* TempCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCollectionViewCell.swift; sourceTree = "<group>"; };
 		A82B3F3F205E361700AFD583 /* TempCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TempCollectionViewCell.xib; sourceTree = "<group>"; };
 		A82B3F49205E6BF800AFD583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A83755EB2056C6F000BD028D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A83DA4F2205C12E60072DE14 /* ForecastRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRouter.swift; sourceTree = "<group>"; };
 		A849B17E204A6B1B0005781D /* InstaForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A849B181204A6B1B0005781D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,10 +75,7 @@
 		A8165E2E2054EFE400E235B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A83755EB2056C6F000BD028D /* Model.swift */,
-				A8165E2B2054ECC400E235B3 /* InstaInfo.swift */,
-				A8165E312055214400E235B3 /* TagPage.swift */,
-				A8165E332055217800E235B3 /* ProfilePage.swift */,
+				A85C356C2210321200226095 /* Instagram */,
 				3D75B5C6205A429F00FF83FB /* WeatherInfo.swift */,
 			);
 			path = Model;
@@ -174,6 +169,16 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A85C356C2210321200226095 /* Instagram */ = {
+			isa = PBXGroup;
+			children = (
+				A8165E2B2054ECC400E235B3 /* InstaInfo.swift */,
+				A8165E312055214400E235B3 /* TagPage.swift */,
+				A8165E332055217800E235B3 /* ProfilePage.swift */,
+			);
+			path = Instagram;
+			sourceTree = "<group>";
+		};
 		CB4487E3E1EC094CB0ED5CFA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,7 +200,6 @@
 				A849B17B204A6B1B0005781D /* Frameworks */,
 				A849B17C204A6B1B0005781D /* Resources */,
 				E07BDC175738693299667ED9 /* [CP] Embed Pods Frameworks */,
-				C29597075C4F1F0EEA4A3682 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -255,21 +259,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C29597075C4F1F0EEA4A3682 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstaForecast/Pods-InstaForecast-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D5FC5A5DBDCC5C282A5D6F84 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -296,16 +285,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-InstaForecast/Pods-InstaForecast-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -321,7 +306,6 @@
 			files = (
 				A81E209920F1F29D00B23C07 /* InstaImageService.swift in Sources */,
 				A81E209720F1F1EC00B23C07 /* Service.swift in Sources */,
-				A83755EC2056C6F000BD028D /* Model.swift in Sources */,
 				A849B184204A6B1B0005781D /* MainViewController.swift in Sources */,
 				A82B3F40205E361700AFD583 /* TempCollectionViewCell.swift in Sources */,
 				A8165E2C2054ECC400E235B3 /* InstaInfo.swift in Sources */,

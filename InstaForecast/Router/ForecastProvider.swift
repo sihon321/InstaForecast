@@ -8,26 +8,31 @@
 
 import Foundation
 import Alamofire
-import ObjectMapper
 
 class ForecastProvider {
-    static func downloadForecast(cityName: String, completion: @escaping (WeatherInfo) -> Void) {
-        Alamofire.request(ForecastRouter.forecast(cityName))
-            .responseJSON { response in
-                guard response.result.isSuccess else {
-                    print("Error while fetching tags: \(String(describing: response.result.error))")
-                    completion(WeatherInfo())
-                    return
-                }
-                
-                guard let responseJSON = response.result.value as? [String: Any],
-                    let results =  Mapper<WeatherInfo>().map(JSON: responseJSON) else {
-                        print("Invalid tag information received from the service")
-                        completion(WeatherInfo())
-                        return
-                }
-                
-                completion(results)
+  static func downloadForecast(cityName: String, completion: @escaping (WeatherInfo?) -> Void) {
+    Alamofire.request(ForecastRouter.forecast(cityName))
+      .responseJSON { response in
+        guard response.result.isSuccess else {
+          print("Error while fetching tags: \(String(describing: response.result.error))")
+          completion(nil)
+          return
         }
+        
+        guard let responseData = response.data else {
+          print("didn't get any data from API")
+          completion(nil)
+          return
+        }
+        
+        guard let results = try? JSONDecoder().decode(WeatherInfo.self,
+                                                  from: responseData) else {
+                                                        print(response.result.value as! [String: Any])
+                                                        completion(nil)
+                                                        return
+        }
+        
+        completion(results)
     }
+  }
 }

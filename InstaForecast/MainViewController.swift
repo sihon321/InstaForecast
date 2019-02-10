@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         
-        instaViewModel = InstaViewModel(service: InstaImageService()) as! InstaImageViewModelType
+        instaViewModel = InstaViewModel(service: InstaImageService())
         instaViewModel.delegate = self
         
         initGesture()
@@ -93,7 +93,7 @@ extension MainViewController: InstaImageDelegate {
     }
     
     func requestForecastInfo() {
-        var cityName = "Seoul"
+        let cityName = "Seoul"
         
         ForecastProvider.downloadForecast(cityName: cityName,
                                           completion: { [unowned self] forecast in
@@ -107,8 +107,10 @@ extension MainViewController: InstaImageDelegate {
 // MARK: setup UISwipeGestureRecognizer
 extension MainViewController {
     func initGesture() {
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeRightGesture(recognizer:)))
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeLeftGesture(recognizer:)))
+        let swipeRight = UISwipeGestureRecognizer(target: self,
+                                                  action: #selector(self.handleSwipeRightGesture(recognizer:)))
+        let swipeLeft = UISwipeGestureRecognizer(target: self,
+                                                 action: #selector(self.handleSwipeLeftGesture(recognizer:)))
         
         swipeRight.direction = .right
         swipeLeft.direction = .left
@@ -128,6 +130,7 @@ extension MainViewController {
             instaViewModel.index += 1
         }
     }
+  
     @IBAction func handleSwipeLeftGesture(recognizer: UISwipeGestureRecognizer) {
         guard let edgesCount = instaViewModel.edges?.count else {
             return

@@ -5,113 +5,71 @@
 //  Created by sihon321 on 2018. 3. 15..
 //  Copyright © 2018년 Sihoon Oh. All rights reserved.
 //
+import Foundation
 
-import ObjectMapper
-
-class WeatherInfo: Model {
-    var city: City?
-    var cnt = 0
-    var list: [List]?
-    
-    override func mapping(map: Map) {
-        city    <- map["city"]
-        cnt     <- map["cnt"]
-        list    <- map["list"]
-    }
+struct WeatherInfo: Codable {
+  let city: City?
+  let cnt: Int?
+  let list: [List]?
 }
 
-class City: Model {
-    var id = 0
-    var name = ""
-    var coord: Coord?
-    var country = ""
-    
-    override func mapping(map: Map) {
-        id      <- map["id"]
-        name    <- map["name"]
-        coord   <- map["coord"]
-        country <- map["country"]
-    }
+struct City: Codable {
+  let id: Int?
+  let name, country: String?
+  let coord: Coord?
 }
 
-class Coord: Model {
-    var longtitude = 0
-    var latitude = 0
-    
-    override func mapping(map: Map) {
-        longtitude      <- map["lon"]
-        latitude        <- map["lat"]
-    }
+struct Coord: Codable {
+  var longtitude, latitude: Double?
+  
+  enum CodingKeys: String, CodingKey {
+    case longtitude = "lon"
+    case latitude = "lat"
+  }
 }
 
-class List: Model {
-    var dt = 0
-    var listMain: ListMain?
-    var listWeather: [ListWeather]?
-    var listClouds: ListClouds?
-    var listWind: ListWind?
-    var dtText = ""
-    
-    override func mapping(map: Map) {
-        dt              <- map["dt"]
-        listMain        <- map["main"]
-        listWeather     <- map["weather"]
-        listClouds      <- map["clouds"]
-        listWind        <- map["wind"]
-        dtText          <- map["dt_txt"]
-    }
+struct List: Codable {
+  var dt: Int?
+  var main: ListMain?
+  var weather: [ListWeather]?
+  var clouds: ListClouds?
+  var wind: ListWind?
+  var dtText: String?
+  
+  enum CodingKeys: String, CodingKey {
+    case dt
+    case main
+    case weather
+    case clouds
+    case wind
+    case dtText = "dt_txt"
+  }
 }
 
-class ListMain: Model {
-    var temp = 0
-    var tempMin = 0
-    var tempMax = 0
-    var pressure = 0
-    var seaLevel = 0
-    var grndLevel = 0
-    var humidity = 0
-    var tempKF = 0
-    
-    override func mapping(map: Map) {
-        temp            <- map["temp"]
-        tempMin         <- map["temp_min"]
-        tempMax         <- map["temp_max"]
-        pressure        <- map["pressure"]
-        seaLevel        <- map["sea_level"]
-        grndLevel       <- map["grnd_level"]
-        humidity        <- map["humidity"]
-        tempKF          <- map["temp_kf"]
-    }
+struct ListMain: Codable {
+  let temp, tempMin, tempMax, pressure, seaLevel, grndLevel, humidity, tempKF: Double?
+  
+  enum CodingKeys: String, CodingKey {
+    case temp
+    case tempMin = "temp_min"
+    case tempMax = "temp_max"
+    case pressure
+    case seaLevel = "sea_level"
+    case grndLevel = "grnd_level"
+    case humidity
+    case tempKF = "temp_kf"
+  }
 }
 
-class ListWeather: Model {
-    var id = 0
-    var main = ""
-    var descrip = ""
-    var icon = ""
-    
-    override func mapping(map: Map) {
-        id          <- map["id"]
-        main        <- map["main"]
-        descrip     <- map["description"]
-        icon        <- map["icon"]
-    }
+struct ListWeather: Codable {
+  let id: Int?
+  let main, description, icon: String?
 }
 
-class ListClouds: Model {
-    var all = 0
-    
-    override func mapping(map: Map) {
-        all     <- map["all"]
-    }
+struct ListClouds: Codable {
+  let all: Double?
 }
 
-class ListWind: Model {
-    var speed = 0
-    var deg = 0
-    
-    override func mapping(map: Map) {
-        speed       <- map["speed"]
-        deg         <- map["deg"]
-    }
+struct ListWind: Codable {
+  var speed, deg: Double?
 }

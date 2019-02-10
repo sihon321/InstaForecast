@@ -8,8 +8,6 @@
 
 import Foundation
 import SwiftSoup
-import SwiftyJSON
-import ObjectMapper
 
 enum InstaRouter {
     case search(word: String, isHashtag: Bool)

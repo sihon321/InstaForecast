@@ -34,8 +34,6 @@ public enum ForecastRouter: URLRequestConvertible {
             switch self {
             case .forecast(let cityName):
                 return ["q": cityName, "mode": "json", "appid": ForecastRouter.authenticationToken]
-            default:
-                return [:]
             }
         }()
         
@@ -43,7 +41,7 @@ public enum ForecastRouter: URLRequestConvertible {
         
         var request = URLRequest(url: url.appendingPathComponent(path))
         request.httpMethod = method.rawValue
-//        request.setValue(ForecastRouter.authenticationToken, forHTTPHeaderField: "appid")
+        request.setValue(ForecastRouter.authenticationToken, forHTTPHeaderField: "appid")
         request.timeoutInterval = TimeInterval(10 * 1000)
         
         return try URLEncoding.default.encode(request, with: parameters)

@@ -20,7 +20,7 @@ struct City: Codable {
 }
 
 struct Coord: Codable {
-  var longtitude, latitude: Double?
+  let longtitude, latitude: Double?
   
   enum CodingKeys: String, CodingKey {
     case longtitude = "lon"
@@ -29,12 +29,12 @@ struct Coord: Codable {
 }
 
 struct List: Codable {
-  var dt: Int?
-  var main: ListMain?
-  var weather: [ListWeather]?
-  var clouds: ListClouds?
-  var wind: ListWind?
-  var dtText: String?
+  let dt: Int?
+  let main: ListMain?
+  let weather: [ListWeather]?
+  let clouds: ListClouds?
+  let wind: ListWind?
+  let dtText: String?
   
   enum CodingKeys: String, CodingKey {
     case dt
@@ -71,5 +71,5 @@ struct ListClouds: Codable {
 }
 
 struct ListWind: Codable {
-  var speed, deg: Double?
+  let speed, deg: Double?
 }

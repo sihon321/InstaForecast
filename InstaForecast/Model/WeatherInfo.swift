@@ -34,7 +34,7 @@ struct List: Codable {
   let weather: [ListWeather]?
   let clouds: ListClouds?
   let wind: ListWind?
-  var dtText: String?
+  let dtText: String?
   
   enum CodingKeys: String, CodingKey {
     case dt
@@ -71,5 +71,5 @@ struct ListClouds: Codable {
 }
 
 struct ListWind: Codable {
-  var speed, deg: Double?
+  let speed, deg: Double?
 }

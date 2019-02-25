@@ -8,8 +8,6 @@
 
 import UIKit
 import SwiftSoup
-import SwiftyJSON
-import ObjectMapper
 
 class MainViewController: UIViewController {
 
